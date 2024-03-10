@@ -22,10 +22,10 @@ camera.position.z = 20
 scene.add(camera)
 
 //renderer
-const canvas = document.querySelector('.webgl')
+const canvas = document.getElementById('webgl')
 const renderer = new THREE.WebGLRenderer({canvas})
 renderer.xr.enabled = true
 renderer.setSize(window.innerWidth, window.innerHeight)
-renderer.render(scene, camera)
+renderer.setAnimationLoop(() => { renderer.render(scene, camera); });
 
 document.body.appendChild(ARButton.createButton(renderer))
